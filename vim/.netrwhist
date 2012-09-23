@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/jsklar/Dropbox/Projects/Kats work website'
+let g:netrw_dirhist_2='/Users/jsklar/Dropbox/Projects/Kats work website/Kats Work Website 3'
+let g:netrw_dirhist_3='/Users/jsklar'
+let g:netrw_dirhist_4='/Users/jsklar/Dropbox'
+let g:netrw_dirhist_5='/Users/jsklar/Dropbox/Projects'
+let g:netrw_dirhist_6='/Users/jsklar/Dropbox/Projects/Programming'
+let g:netrw_dirhist_7='/Users/jsklar/Dropbox/Projects/Programming/alittleblogengine'
+let g:netrw_dirhist_8='/Users/jsklar'

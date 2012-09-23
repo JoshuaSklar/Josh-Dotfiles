@@ -1,0 +1,14 @@
+[user]
+	name = Joshua Sklar
+	email = JoshuaSklar@simplywondering.com
+[alias]
+	co = checkout
+[apply]
+	whitespace = nowarn
+[github]
+	user = JoshuaSklar
+	token = 7073679757de0bd1b8937adf34813290
+[core]
+	quotepath = false
+	excludesfile = " ~/.gitignore"
+	editor = vim
