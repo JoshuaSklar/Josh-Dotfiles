@@ -2,6 +2,7 @@
 " Modified last on September 19th 2012
 filetype plugin on      " Essential for VIM usage.
 set nocompatible        " Use Vim defaults (much better!)
+call pathogen#infect()	" Using pathogen for plugin management. Hope this becomes part of base
 set ruler               " show the cursor position all the time
 syntax on
 "setlocal spell spelllang=en_us "Turns on Spell Check in Vim7
