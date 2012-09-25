@@ -23,17 +23,7 @@ set textwidth=80		"I like having only 80 characters on a line.
 set encoding=utf8
 filetype plugin indent on "enables indenting for different file types.
 
-" Settings for C Coding.
-autocmd FileType c set expandtab
-autocmd FileType c set tabstop=4
-autocmd FileType c set shiftwidth=4
-
-" Settings for C++ Coding.
-autocmd FileType cpp set textwidth=80
-autocmd FileType cpp set tabstop=4
-autocmd FileType cpp set shiftwidth=4
-autocmd Filetype cpp set expandtab
-
+autocmd BufEnter *.c, *.h, *.cpp, *.cc source ~/.vim/c.vim
 " Settings for Markdown.
 autocmd FileType markdown set wrapmargin=10     "will break lines at 80 chars"
 
