@@ -1,5 +1,5 @@
 export
-PATH="/usr/local/bin:/Users/jsklar/Dropbox/Projects/Bash-Scripts:/usr/local/mysql/bin:/usr/bin:/bin:/opt/local/bin:/usr/local/CrossPack-AVR/bin"
+PATH="/usr/local/bin:/Users/jsklar/Dropbox/Projects/Bash-Scripts:/usr/local/mysql/bin:/usr/bin:/bin:/opt/local/bin:/usr/local/OSUAVR/bin"
 export PYTHONPATH=${PYTHONPATH}:/Library/Python/2.5/site-packages/
 
 
