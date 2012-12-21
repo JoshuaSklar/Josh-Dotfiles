@@ -12,3 +12,5 @@
 	quotepath = false
 	excludesfile = ~/.cvsignore
 	editor = vim
+[credential]
+	helper = osxkeychain
