@@ -3,6 +3,7 @@
 	email = JoshuaSklar@simplywondering.com
 [alias]
 	co = checkout
+	ctags = !.git/hooks/ctags
 [apply]
 	whitespace = nowarn
 [github]
