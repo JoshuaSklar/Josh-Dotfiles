@@ -14,3 +14,10 @@
 	editor = vim
 [credential]
 	helper = osxkeychain
+[init]
+	templatedir = ~/.git_template
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
