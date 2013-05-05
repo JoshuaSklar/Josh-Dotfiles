@@ -7,3 +7,6 @@ export PYTHONPATH=${PYTHONPATH}:/Library/Python/2.5/site-packages/
 # The orginal version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
+
+#Setting for my SVN editor.
+export SVN_EDITOR=vim
