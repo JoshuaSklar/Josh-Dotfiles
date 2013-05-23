@@ -20,7 +20,6 @@ set nobackup            			"No .BAK files please.
 set nowb		
 set noswapfile
 set autoread					"updates buffer if file changed externally.
-set textwidth=80				"I like having only 80 characters on a line.
 set encoding=utf8				"I'm an international man.
 filetype plugin indent on 			"enables indenting for different file types.
 
@@ -31,10 +30,6 @@ autocmd BufEnter *.c,*.h,*.cpp,*.hpp,*.cc source ~/.vim/c.vim
 autocmd FileType markdown set wrapmargin=10     "will break lines at 80 chars"
 
 " Settings for Python
-autocmd FileType python set tabstop=4
-autocmd FileType python set shiftwidth=4
-autocmd FileType python set textwidth=0		"Don't want autowrapping in Python
-" The following eliminates whitespace from the end of lines on write.
-autocmd BufWritePre *.py normal m`:%s/\s\+$//e``
+autocmd BufEnter *.py source ~/.vim/py.vim
 
 set foldmethod=syntax				"I just want to turn on syntax folding.
