@@ -34,3 +34,6 @@ autocmd FileType markdown set wrapmargin=10     " will break lines at 80 chars"
 autocmd BufEnter *.py source ~/.vim/py.vim
 
 set foldmethod=syntax				" I just want to turn on syntax folding.
+
+"Turn on the form of SuperTab that I like.
+let g:SuperTabDefaultCompletionType = "context"
