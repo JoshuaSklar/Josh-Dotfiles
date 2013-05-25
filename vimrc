@@ -33,6 +33,9 @@ autocmd FileType markdown set wrapmargin=10     " will break lines at 80 chars"
 " Settings for Python
 autocmd BufEnter *.py source ~/.vim/py.vim
 
+" Settings for Tex documents.
+autocmd BufEnter *.tex source ~/.vim/tex.vim
+
 set foldmethod=syntax				" I just want to turn on syntax folding.
 
 "Turn on the form of SuperTab that I like.
