@@ -9,7 +9,7 @@ set ruler               			" show the cursor position all the time
 syntax enable
 if !has('gui_running')
 	set background=dark
-	let g:solarized_termtrans=0
+	let g:solarized_termtrans=1
 	let g:solarized_termcolors=256
 	colorscheme solarized
 else
