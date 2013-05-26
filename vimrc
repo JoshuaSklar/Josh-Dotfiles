@@ -3,11 +3,19 @@
 
 filetype plugin on      			" Essential for VIM usage.
 set nocompatible        			" Use Vim defaults (much better!)
+set t_Co=256					" Set VIM to use 256 colors.
 call pathogen#infect()				" Using pathogen for plugin management. Hope this becomes part of base
 set ruler               			" show the cursor position all the time
-syntax on
-set t_Co=256					" Set VIM to use 256 colors.
-colorscheme desert256
+syntax enable
+if !has('gui_running')
+	set background=dark
+	let g:solarized_termtrans=0
+	let g:solarized_termcolors=256
+	colorscheme solarized
+else
+	set background=dark
+	colorscheme solarized
+endif
 set history=50					" keeps 50 commands and 50 search patterns in history"
 set showcmd					" display incomplet command left of the ruler"
 set incsearch					" display the matches for partial patterns"
