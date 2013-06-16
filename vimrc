@@ -46,3 +46,10 @@ autocmd BufEnter *.tex source ~/.vim/tex.vim
 
 set foldmethod=syntax				" I just want to turn on syntax folding.
 
+" Global settings for YCM
+let g:ycm_filetype_blacklist = {
+      \ 'notes' : 1,
+      \ 'markdown' : 1,
+      \ 'text' : 1,
+      \ 'vim' : 1,
+      \}
