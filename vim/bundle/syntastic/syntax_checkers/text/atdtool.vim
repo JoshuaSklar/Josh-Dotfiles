@@ -1,5 +1,5 @@
 "============================================================================
-"File:        prettycss.vim
+"File:        atdtool.vim
 "Description: Syntax checking plugin for syntastic.vim
 "Maintainer:  LCD 47 <lcd047 at gmail dot com>
 "License:     This program is free software. It comes without any warranty,
@@ -9,54 +9,48 @@
 "             See http://sam.zoy.org/wtfpl/COPYING for more details.
 "
 "============================================================================
-"
-" For details about PrettyCSS see:
-"
-"   - http://fidian.github.io/PrettyCSS/
-"   - https://github.com/fidian/PrettyCSS
 
-if exists("g:loaded_syntastic_css_prettycss_checker")
+if exists("g:loaded_syntastic_text_atdtool_checker")
     finish
 endif
-let g:loaded_syntastic_css_prettycss_checker=1
+let g:loaded_syntastic_text_atdtool_checker = 1
 
-function! SyntaxCheckers_css_prettycss_IsAvailable()
-    return executable('prettycss')
+function! SyntaxCheckers_text_atdtool_IsAvailable()
+    return executable('atdtool')
 endfunction
 
-function! SyntaxCheckers_css_prettycss_GetHighlightRegex(item)
-    let term = matchstr(a:item["text"], ' (\zs[^)]\+\ze)$')
+function! SyntaxCheckers_text_atdtool_GetHighlightRegex(item)
+    let term = matchstr(a:item['text'], '\m "\zs[^"]\+\ze"\($\| | suggestions:\)')
     if term != ''
-        let term = '\V' . term
+        let col = get(a:item, 'col', 0)
+        let term = (col != 0 ? '\%' . col . 'c' : '') . '\V' . term
     endif
     return term
 endfunction
 
-function! SyntaxCheckers_css_prettycss_GetLocList()
+function! SyntaxCheckers_text_atdtool_GetLocList()
     let makeprg = syntastic#makeprg#build({
-        \ 'exe': 'prettycss',
-        \ 'filetype': 'css',
-        \ 'subchecker': 'prettycss' })
+        \ 'exe': 'atdtool',
+        \ 'tail': '2>' . syntastic#util#DevNull(),
+        \ 'filetype': 'text',
+        \ 'subchecker': 'atdtool' })
 
-    " Print CSS Lint's error/warning messages from compact format. Ignores blank lines.
     let errorformat =
-        \ '%EError:  %m\, line %l\, char %c),' .
-        \ '%WWarning:  %m\, line %l\, char %c),' .
-        \ '%-G%.%#'
+        \ '%W%f:%l:%c: %m,'.
+        \ '%+C  suggestions:%.%#'
 
     let loclist = SyntasticMake({
         \ 'makeprg': makeprg,
         \ 'errorformat': errorformat,
-        \ 'defaults': {'bufnr': bufnr("")},
-        \ 'postprocess': ['sort'] })
+        \ 'subtype': 'Style' })
 
     for n in range(len(loclist))
-        let loclist[n]["text"] .= ')'
+        let loclist[n]['text'] = substitute(loclist[n]['text'], '\n\s\+', ' | ', 'g')
     endfor
 
     return loclist
 endfunction
 
 call g:SyntasticRegistry.CreateAndRegisterChecker({
-    \ 'filetype': 'css',
-    \ 'name': 'prettycss'})
+    \ 'filetype': 'text',
+    \ 'name': 'atdtool'})
