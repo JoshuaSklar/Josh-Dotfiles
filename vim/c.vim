@@ -4,7 +4,3 @@ set noexpandtab			"use tabs, not spaces *sigh*
 set tabstop=8			"tabstops of 8 spaces in size.
 set shiftwidth=8		"indents will be 8 space increments.
 set textwidth=78		"80 columns is the general max. 
-"Turn on c++ autocomplete when needed.
-autocmd FileType cpp set omnifunc=omni#cpp#complete#Main
-"Turn on autocomplete for c style
-autocmd FileType c set omnifunc=ccomplete#Complete
