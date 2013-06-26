@@ -47,9 +47,15 @@ autocmd BufEnter *.tex source ~/.vim/tex.vim
 set foldmethod=syntax				" I just want to turn on syntax folding.
 
 " Global settings for YCM
-let g:ycm_filetype_blacklist = {
-      \ 'notes' : 1,
-      \ 'markdown' : 1,
-      \ 'text' : 1,
-      \ 'vim' : 1,
-      \}
+" Set all the file types I don't want completion for.
+let g:ycm_filetype_blacklist = {		      
+			\ 'notes' : 1,
+			\ 'markdown' : 1,
+			\ 'text' : 1,
+			\ 'vim' : 1,
+			\ 'gitcommit' : 1,
+	\}
+let g:ycm_confirm_extra_conf = 0		" Get rid of the is this a safe extra file complaints.
+let g:ycm_autoclose_preview_window_after_completion = 0 " Damn preview window stays otherwise...
+let g:EclimCompletionMethod = 'omnifunc'	" Need eclim and YCM to play nice.
+
