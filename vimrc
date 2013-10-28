@@ -1,5 +1,4 @@
 " Josh Sklar's .vimrc
-" Modified last on October 3rd 2012
 
 filetype plugin on      			" Essential for VIM usage.
 set nocompatible        			" Use Vim defaults (much better!)
@@ -8,14 +7,14 @@ call pathogen#infect()				" Using pathogen for plugin management. Hope this beco
 set ruler               			" show the cursor position all the time
 syntax enable
 if !has('gui_running')
-	set background=dark
-	let g:solarized_termtrans=1
-	let g:solarized_termcolors=256
+	set background=dark			" I like using the dark solarized theme.
+	let g:solarized_termtrans=1		" When I use terminal, this is an essential settting.
 	colorscheme solarized
 else
-	set background=dark
+	set background=dark			" Gui VIM needs less prompting to get things right.
 	colorscheme solarized
 endif
+set backspace=indent,eol,start			" I like backspacing over indents and newlines.
 set history=50					" keeps 50 commands and 50 search patterns in history"
 set showcmd					" display incomplet command left of the ruler"
 set incsearch					" display the matches for partial patterns"
