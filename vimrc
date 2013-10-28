@@ -56,5 +56,4 @@ let g:ycm_filetype_blacklist = {
 	\}
 let g:ycm_confirm_extra_conf = 0		" Get rid of the is this a safe extra file complaints.
 let g:ycm_autoclose_preview_window_after_completion = 0 " Damn preview window stays otherwise...
-let g:EclimCompletionMethod = 'omnifunc'	" Need eclim and YCM to play nice.
 
