@@ -6,6 +6,7 @@ set t_Co=256					" Set VIM to use 256 colors.
 call pathogen#infect()				" Using pathogen for plugin management. Hope this becomes part of base
 set ruler               			" show the cursor position all the time
 syntax enable
+set shell=/bin/zsh				"Since I like using fish shell, but fish shell doesn't support traditional redirection.
 if !has('gui_running')
 	set background=dark			" I like using the dark solarized theme.
 	let g:solarized_termtrans=1		" When I use terminal, this is an essential settting.
