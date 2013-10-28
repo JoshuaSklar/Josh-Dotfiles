@@ -42,10 +42,11 @@ function! SyntaxCheckers_text_atdtool_GetLocList()
     let loclist = SyntasticMake({
         \ 'makeprg': makeprg,
         \ 'errorformat': errorformat,
+        \ 'returns': [0],
         \ 'subtype': 'Style' })
 
     for n in range(len(loclist))
-        let loclist[n]['text'] = substitute(loclist[n]['text'], '\n\s\+', ' | ', 'g')
+        let loclist[n]['text'] = substitute(loclist[n]['text'], '\m\n\s\+', ' | ', 'g')
     endfor
 
     return loclist
