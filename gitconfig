@@ -1,6 +1,6 @@
 [user]
 	name = Joshua Sklar
-	email = JoshuaSklar@simplywondering.com
+	email = JoshuaSklar@JoshuaSklar.com
 [alias]
 	co = checkout
 	ctags = !.git/hooks/ctags
@@ -11,7 +11,7 @@
 	token = 7073679757de0bd1b8937adf34813290
 [core]
 	quotepath = false
-	excludesfile = ~/.cvsignore
+	excludesfile = ~/.gitignore_global
 	editor = vim
 [credential]
 	helper = osxkeychain
@@ -22,3 +22,5 @@
 	status = auto
 	branch = auto
 	interactive = auto
+[push]
+	default = simple
