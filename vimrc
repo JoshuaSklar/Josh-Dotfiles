@@ -30,6 +30,9 @@ set nowb
 set noswapfile
 set autoread					" updates buffer if file changed externally.
 set encoding=utf8				" I'm an international man.
+set expandtab					" tabs are the devil.
+set shiftwidth=2				" A default shiftwidth of 2
+set tabstop=2					" again, default of 2.
 filetype plugin indent on 			" enables indenting for different file types.
 
 "Settings for c and c++
