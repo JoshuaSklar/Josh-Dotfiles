@@ -10,3 +10,7 @@ export PATH
 
 #Setting for my SVN editor.
 export SVN_EDITOR=vim
+
+export GMOCK_HOME=/Users/jsklar/gmock-1.6.0
+
+export PATH=/usr/local/bin:$PATH

@@ -41,6 +41,9 @@ function python_finder {
     lib_python="${python_prefix}/lib/lib${which_python}"
     if [ -f "${lib_python}.a" ]; then
       python_library+="${lib_python}.a"
+    # This check is for for CYGWIN
+    elif [ -f "${lib_python}.dll.a" ]; then
+      python_library+="${lib_python}.dll.a"
     else
       python_library+="${lib_python}.dylib"
     fi
@@ -77,7 +80,7 @@ function install {
     cmake -G "Unix Makefiles" "$@" . $ycm_dir/cpp
   fi
 
-  make -j $(num_cores) ycm_core
+  make -j $(num_cores) ycm_support_libs
   popd
   rm -rf $build_dir
 }
@@ -106,6 +109,22 @@ function usage {
   exit 0
 }
 
+function check_third_party_libs {
+  libs_present=true
+  for folder in third_party/*; do
+    num_files_in_folder=$(find $folder -maxdepth 1 -mindepth 1 | wc -l)
+    if [[ $num_files_in_folder -eq 0 ]]; then
+      libs_present=false
+    fi
+  done
+
+  if ! $libs_present; then
+    echo "Some folders in ./third_party are empty; you probably forgot to run:"
+    printf "\n\tgit submodule update --init --recursive\n\n"
+    exit 1
+  fi
+}
+
 cmake_args=""
 omnisharp_completer=false
 for flag in $@; do
@@ -130,6 +149,8 @@ if [[ $cmake_args == *-DUSE_SYSTEM_LIBCLANG=ON* ]] && \
   usage
 fi
 
+check_third_party_libs
+
 if ! command_exists cmake; then
   echo "CMake is required to build YouCompleteMe."
   cmake_install
@@ -138,16 +159,19 @@ fi
 if [ -z "$YCM_TESTRUN" ]; then
   install $cmake_args $EXTRA_CMAKE_ARGS
 else
-  testrun $cmake_args -DUSE_DEV_FLAGS=ON $EXTRA_CMAKE_ARGS
+  testrun $cmake_args $EXTRA_CMAKE_ARGS
 fi
 
 if $omnisharp_completer; then
   buildcommand="msbuild"
   if ! command_exists msbuild; then
-    buildcommand="xbuild"
-    if ! command_exists xbuild; then
-      echo "msbuild or xbuild is required to build Omnisharp"
-      exit 1
+    buildcommand="msbuild.exe"
+    if ! command_exists msbuild.exe; then
+      buildcommand="xbuild"
+      if ! command_exists xbuild; then
+        echo "msbuild or xbuild is required to build Omnisharp"
+        exit 1
+      fi
     fi
   fi
 

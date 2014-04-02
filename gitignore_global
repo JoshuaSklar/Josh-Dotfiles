@@ -1,0 +1,13 @@
+# OS Files #
+############
+
+*.DS_Store
+
+# Compiled Sources #
+####################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
