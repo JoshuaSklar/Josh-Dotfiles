@@ -1,12 +1,12 @@
 " Josh Sklar's .vimrc
 
-filetype plugin on      			" Essential for VIM usage.
 set nocompatible        			" Use Vim defaults (much better!)
+filetype plugin on      			" Essential for VIM usage.
 set t_Co=256					" Set VIM to use 256 colors.
 call pathogen#infect()				" Using pathogen for plugin management. Hope this becomes part of base
 set ruler               			" show the cursor position all the time
 syntax enable
-set shell=/bin/zsh				"Since I like using fish shell, but fish shell doesn't support traditional redirection.
+set shell=/bin/bash				"Since I like using fish shell, but fish shell doesn't support traditional redirection.
 if !has('gui_running')
 	set background=dark			" I like using the dark solarized theme.
 	let g:solarized_termtrans=1		" When I use terminal, this is an essential settting.
@@ -48,16 +48,3 @@ autocmd BufEnter *.py source ~/.vim/py.vim
 autocmd BufEnter *.tex source ~/.vim/tex.vim
 
 set foldmethod=syntax				" I just want to turn on syntax folding.
-
-" Global settings for YCM
-" Set all the file types I don't want completion for.
-let g:ycm_filetype_blacklist = {		      
-			\ 'notes' : 1,
-			\ 'markdown' : 1,
-			\ 'text' : 1,
-			\ 'vim' : 1,
-			\ 'gitcommit' : 1,
-	\}
-let g:ycm_confirm_extra_conf = 0		" Get rid of the is this a safe extra file complaints.
-let g:ycm_autoclose_preview_window_after_completion = 0 " Damn preview window stays otherwise...
-
